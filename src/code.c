@@ -413,7 +413,7 @@ Node* detachLast(Node **headPtrPtr)
     while (currentPtr->nextPtr->nextPtr != NULL) {
         currentPtr = currentPtr->nextPtr;
     }
-
+    
     currentPtr->nextPtr = NULL;
 
     return currentPtr;
@@ -461,8 +461,6 @@ Node* detachValue(Node **headPtrPtr, int value)
     if(currentPtr == NULL) {
         return NULL;
     }
-
-    (*headPtrPtr)->nextPtr = currentPtr->nextPtr;
 
     _nullify(&currentPtr->nextPtr);
     previousPtr = NULL;
