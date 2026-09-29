@@ -273,7 +273,7 @@ void test_addLast_non_empty(void)
 
 void test_addLast_null_guard(void)
 {
-    Node* a;
+    Node* a = NULL;
     int status = addLast(NULL, a);
     TEST_ASSERT_TRUE_MESSAGE(status == -1, "Error: status returned values other than -1");
 }
@@ -334,7 +334,7 @@ void test_detachFirst_updates_head(void)
 void test_detachFirst_empty_list(void)
 {
     Node *headPtr = NULL;
-    int status = detachFirst(&headPtr);
+    Node* status = detachFirst(&headPtr);
     TEST_ASSERT_TRUE_MESSAGE(status == NULL, "DetachFirst did not return NULL");
 }
 
