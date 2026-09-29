@@ -413,12 +413,12 @@ Node* detachLast(Node **headPtrPtr)
     while (currentPtr->nextPtr->nextPtr != NULL) {
         currentPtr = currentPtr->nextPtr;
     }
-    
+    Node *detached = currentPtr->nextPtr;
     currentPtr->nextPtr = NULL;
 
     
 
-    return currentPtr;
+    return detached;
 }
 
 
