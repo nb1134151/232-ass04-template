@@ -331,6 +331,7 @@ int addLast(Node **headPtrPtr, Node *newNodePtr)
 
     Node *last = _findLast(*headPtrPtr);
     last->nextPtr = newNodePtr;
+
     }
 
     newNodePtr->nextPtr = NULL;
@@ -394,8 +395,13 @@ Node* detachFirst(Node **headPtrPtr)
 
 Node* detachLast(Node **headPtrPtr)
 {
+    if(headPtrPtr == NULL || *headPtrPtr == NULL) {
+        return NULL;
+    }
+
     if ((*headPtrPtr)->nextPtr == NULL) {
-        detachFirst(headPtrPtr);
+        Node *last = detachFirst(headPtrPtr);
+        return last;
     }
 
     if(headPtrPtr == NULL) {
@@ -435,6 +441,9 @@ Node* detachLast(Node **headPtrPtr)
 Node* detachValue(Node **headPtrPtr, int value)
 {
 
+    if(headPtrPtr == NULL || *headPtrPtr == NULL) {
+        return NULL;
+    }
 
     if ((*headPtrPtr)->value == value) {
         Node *first = detachFirst(headPtrPtr);
