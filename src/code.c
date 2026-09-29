@@ -164,7 +164,7 @@ static Node* _findValue(Node *headPtr, int value)
 
     Node *currentPtr = headPtr;
 
-    while (currentPtr->nextPtr != NULL) {
+    while (currentPtr != NULL) {
         if(currentPtr->value == value) {
             return currentPtr;
         }
@@ -404,10 +404,6 @@ Node* detachLast(Node **headPtrPtr)
         return last;
     }
 
-    if(headPtrPtr == NULL) {
-        return NULL;
-    }
-
     Node *currentPtr = *headPtrPtr;
 
     while (currentPtr->nextPtr->nextPtr != NULL) {
@@ -415,6 +411,8 @@ Node* detachLast(Node **headPtrPtr)
     }
     
     currentPtr->nextPtr = NULL;
+
+    
 
     return currentPtr;
 }
