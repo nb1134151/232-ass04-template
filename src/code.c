@@ -80,6 +80,10 @@ int   listLength  (Node *headPtr);
 
 static void _nullify(Node **nodePtrPtr)
 {
+    if(nodePtrPtr == NULL) {
+       return; 
+    }
+
     *nodePtrPtr = NULL;
 }
 
