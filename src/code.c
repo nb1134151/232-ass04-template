@@ -326,11 +326,12 @@ int addLast(Node **headPtrPtr, Node *newNodePtr)
 
     if(*headPtrPtr == NULL) {
         *headPtrPtr = newNodePtr;
-        return 0;
-    }
+        
+    } else {
 
     Node *last = _findLast(*headPtrPtr);
     last->nextPtr = newNodePtr;
+    }
 
     newNodePtr->nextPtr = NULL;
 
