@@ -445,27 +445,28 @@ Node* detachValue(Node **headPtrPtr, int value)
         return NULL;
     }
 
-    if ((*headPtrPtr)->value == value) {
+    if ((*headPtrPtr)->value == value) { // detach and return node pointer if value is at the head pointer
         Node *first = detachFirst(headPtrPtr);
         return first;
     }
     
-    Node *currentPtr = *headPtrPtr;
+    Node *detachedPtr = *headPtrPtr;
     Node *previousPtr = NULL;
 
-    while(currentPtr != NULL && currentPtr->value != value) {
-        previousPtr = currentPtr;
-        currentPtr = currentPtr->nextPtr;        
+    while(detachedPtr != NULL && detachedPtr->value != value) {
+        previousPtr = detachedPtr;
+        detachedPtr = detachedPtr->nextPtr;        
     }
 
-    if(currentPtr == NULL) {
+    if(detachedPtr == NULL) {
         return NULL;
     }
 
-    _nullify(&currentPtr->nextPtr);
+    previousPtr->nextPtr = detachedPtr->nextPtr; // point the previousPtr towards the new second node 
+    _nullify(&detachedPtr->nextPtr);
     previousPtr = NULL;
 
-    return currentPtr;
+    return detachedPtr;
     
     
 }

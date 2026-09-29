@@ -364,7 +364,7 @@ void test_detachValue_found(void)
 
     Node *detachedPtr = detachValue(&headPtr, 2);
     TEST_ASSERT_TRUE_MESSAGE(detachedPtr == nodeB, "Error: Returned pointer does not point to b.");
-    TEST_ASSERT_TRUE_MESSAGE(nodeA->nextPtr == nodeC, "Error: a->nextPTr does not point to c.");
+    TEST_ASSERT_TRUE_MESSAGE(nodeA->nextPtr == nodeC, "Error: a->nextPtr does not point to c.");
     TEST_ASSERT_TRUE_MESSAGE(nodeB->nextPtr == NULL, "Error: b->nextPtr is not NULL.");
 
 }
